@@ -1,0 +1,38 @@
+{
+    "Due_1" : {
+        "name" : "Suraboi",
+        "phone" : "+919819345354",
+        "amount" : 430,
+        "received" : 50
+    },
+    "Due_2" : {
+        "name" : "Noyo",
+        "phone" : "+919833080500",
+        "amount" : 800,
+        "received" : 430
+    },
+    "Due_3" : {
+        "name" : "Vaishak",
+        "phone" : "+917009627936",
+        "amount" : 680,
+        "received" : 0
+    },
+    "Due_4" : {
+        "name" : "Anish",
+        "phone" : "+918275010618",
+        "amount" : 326,
+        "received" : 22
+    },
+    "Due_5" : {
+        "name" : "Ritzzy",
+        "phone" : "+919560017224",
+        "amount" : 620,
+        "received" : 0
+    },
+    "Due_6" : {
+        "name" : "Teju Bhai",
+        "phone" : "+917973301785",
+        "amount" : 660,
+        "received" : 0
+    }
+}

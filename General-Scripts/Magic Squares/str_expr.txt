@@ -1,0 +1,16 @@
+import re
+
+def parse_algebric_type_expr(equation :str) -> dict :
+    if not re.search('^(\(|\-|\d)', equation) :  equation = "+1" + equation
+
+    elif re.search('^\-[a-z]', equation) :  equation = "-1" + equation[1:]
+
+    equation = equation.replace("*", "")
+    equation = re.findall(r"[\+\-]?\d?[a-z]{0,}\^?\d?", equation)
+    
+    check_sign = lambda term : term[0] + "1" + term[1:] if re.search("^[\+\-]?[a-z]", term) else term
+
+    equation = [check_sign(sub_eqn) for sub_eqn in equation if sub_eqn != '']
+    equation = [re.split(r"([\+\-]?(?<!\^)\d+)", sub_eqn)[1:] for sub_eqn in equation]
+    eqn_details = {term[1]:int(term[0]) for term in equation}
+    return eqn_details

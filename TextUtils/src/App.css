@@ -1,0 +1,78 @@
+:root {
+  --bg-color-primary : 'white';
+  --bg-color-secondary : rgb(203, 216, 216);
+  --fg-color-primary : 'black';
+  --fg-color-secondary : rgb(27, 27, 27);
+  --bg-color-tertiary : '#F0F0F0'
+  --theme-icon-color : 'white'
+}
+
+body {
+  background-color: var(--bg-color-primary);
+  color: var(--fg-color-primary);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.temp {
+  color: rgb(27, 27, 27);
+}
+
+li, a {
+  list-style: none;
+  text-decoration: none;
+  color: var(--fg-color-primary) !important;
+}
+
+nav {
+  background-color: var(--bg-color-secondary);
+  color: var(--fg-color-secondary);
+}
+
+.theme-icons {
+  display: flex;
+  flex-direction: row;
+}
+
+.theme-icon {
+  height: 2rem;
+  width: 2rem;
+  margin: 2px;
+  background-color: var(--theme-icon-color);
+  border-radius: 50%;
+  border: 2px solid var(--fg-color-secondary);
+}
+
+.alert-container {
+  height: 2rem;
+}
+
+textarea.form-control, textarea.form-control:focus {
+  height: 50vh;
+  resize: none;
+  background-color: var(--bg-color-secondary);
+  color: var(--fg-color-secondary);
+}
+
+.action-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.action-btn {
+  margin: 0.2rem 0.3rem;
+}
+
+.method-btn {
+  background-color: var(--bg-color-secondary);
+  color: var(--fg-color-primary);
+}
+
+.method-btn:hover {
+  color: var(--fg-color-secondary);
+}

@@ -1,0 +1,29 @@
+import re
+
+def parse_bracket_type_expr(equation :str) -> dict :
+
+    equation = [re.sub("\(|\)", "", sub_eqn) for sub_eqn in equation.split('),(')]
+    def conv_to_int(string : str) :
+        try : 
+            return int(string)
+        except:
+            for term in re.findall(r"[a-z]+\d+", string):
+                exp = re.findall(r"\d+", string)[0]
+                return re.findall(r"[a-z]+", string)[0] + str(f"^{exp}" if exp != "1" else "")
+
+
+
+    equation = [list(map(conv_to_int, sub_eqn.split(','))) for sub_eqn in equation]
+
+    eqn_details = {}
+
+    for term in equation:
+        if len(term) == 1 : eqn_details[''] = term[0]
+
+        elif len(term) > 2: 
+            temp = "".join([sub_term.replace("^1", "") for sub_term in term[1:]])
+            eqn_details[temp] = term[0]
+
+        else :
+            eqn_details[term[1]] = term[0]
+    return eqn_details  

@@ -1,0 +1,61 @@
+require("dotenv").config();
+
+const { check, body, validationResult } = require("express-validator");
+const { isEmail, isLength, isEmpty } = require("validator");
+
+const CheckValidation = (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+};
+
+const loginValidation = [
+  body('identifier').custom((identifier, { req }) => {
+    identifier = identifier.toLowerCase().trim();
+    if (isEmail(identifier)) {
+      req.identifierType = 'email';
+      return true;
+    } else {
+      if (isLength(identifier, { min: 3, max: 15 })) {
+        req.identifierType = 'username';
+        return true;
+      } else {
+        throw new Error('Invalid Login Details!');
+      }
+    }
+  }),
+  body("password", "Invalid Login Details!")
+    .exists()
+    .isLength({ min: 6 }),
+];
+
+const signupValidation = [
+  body("email", "Enter a valid email").isEmail(),
+  body("username", "Username should be of atleast 3 Characters")
+    .exists()
+    .isLength({ min: 3 }),
+  body("password", "Password should be of atleast 6 Characters")
+    .exists()
+    .isLength({ min: 6 }),
+];
+
+const updateValidation = [
+  body("email", "Enter a valid email").isEmail(),
+  body("username", "Username should be of atleast 3 Characters")
+    .exists()
+    .isLength({ min: 3 }),
+  body('email').custom((email, { req }) => {
+    email = email.toLowerCase().trim();
+    if (isEmail(email)) {
+      if (req.body.password !== '') {
+        if (isEmpty(req.body.password) && req.body.password.length < 6) {
+          throw new Error('Password should be of atleast 6 Characters');
+        }
+      }
+      return true;
+    }
+  }),
+];
+
+module.exports = { CheckValidation, loginValidation, signupValidation, updateValidation };

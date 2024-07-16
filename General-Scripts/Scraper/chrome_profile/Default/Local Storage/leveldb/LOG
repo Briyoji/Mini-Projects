@@ -1,0 +1,8 @@
+2023/06/16-23:32:39.905 4374 Creating DB D:\General-Scripts\Scraper\chrome_profile\Default\Local Storage\leveldb since it was missing.
+2023/06/16-23:32:39.910 4374 Reusing MANIFEST D:\General-Scripts\Scraper\chrome_profile\Default\Local Storage\leveldb/MANIFEST-000001
+2023/06/17-00:05:58.883 3038 Level-0 table #5: started
+2023/06/17-00:05:58.895 3038 Level-0 table #5: 14115 bytes OK
+2023/06/17-00:05:58.897 3038 Delete type=0 #3
+2023/06/17-00:33:58.884 3038 Level-0 table #7: started
+2023/06/17-00:33:58.896 3038 Level-0 table #7: 24888 bytes OK
+2023/06/17-00:33:58.897 3038 Delete type=0 #4

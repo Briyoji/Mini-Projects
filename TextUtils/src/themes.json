@@ -1,0 +1,32 @@
+{
+    "--theme-icon-color" : {
+        "light": "#FFFFFF",
+        "dark" : "#004A31",
+        "black": "#000000" 
+    },
+    "--bg-color-primary" : {
+        "light": "#FFFFFF",
+        "dark" : "#004A31",
+        "black": "#000000" 
+    },
+    "--bg-color-secondary" : {
+        "light": "#FAFAFA",
+        "dark" : "#005E3F",
+        "black": "#363636"
+    },
+    "--bg-color-tertiary" : {
+        "light": "#F0F0F0",
+        "dark" : "#007D53",
+        "black": "#F0F0F0"
+    },
+    "--fg-color-primary" : {
+        "light": "#000000",
+        "dark" : "#F2F2F2",
+        "black": "#FFFFFF"  
+    },
+    "--fg-color-secondary" : {
+        "light": "#363636",
+        "dark" : "#D6D6D6",
+        "black": "#FAFAFA" 
+    }
+}

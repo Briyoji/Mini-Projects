@@ -1,0 +1,99 @@
+import re
+import numpy as np
+
+from str_expr import parse_algebric_type_expr
+from bracket_expr import parse_bracket_type_expr
+
+
+# with open('./magic_square.txt', 'r') as f_obj :
+#     raw_data = f_obj.readlines()
+#     algebric = False
+#     if raw_data[0][0] == '(' :
+#         raw_data = [line.strip().split(', ') for line in raw_data]
+#     else :
+#         algebric = True
+#         raw_data = [line.replace("*", "").strip().split(',') for line in raw_data]
+
+# side = len(raw_data)
+
+# # parse = lambda equation : parse_bracket_type_expr(equation) if equation[0] == "(" else parse_algebric_type_expr(equation)
+
+# if algebric == True :
+#     data = [[parse_algebric_type_expr(data_elem) for data_elem in data_row] for data_row in raw_data]
+# else :
+#     data = [[parse_bracket_type_expr(data_elem) for data_elem in data_row] for data_row in raw_data]
+#     # data = [parse_bracket_type_expr(data_row) for data_row in raw_data]
+
+
+def add_equations (eqn_1, eqn_2) :
+    return {k: eqn_1.get(k, 0) + eqn_2.get(k, 0) for k in set(eqn_1) | set(eqn_2)}
+
+def row_sum (data, row_idx) :
+    sum_row = add_equations(data[row_idx][0], data[row_idx][1])
+    if len(data) > 2 :
+        for col_idx in range(2, len(data[row_idx])) :
+            sum_row = add_equations(sum_row, data[row_idx][col_idx])
+    return sum_row
+
+def col_sum (data, col_idx) :
+    sum_col = add_equations(data[0][col_idx], data[1][col_idx])
+    if len(data) > 2 :
+        for row_idx in range(2, len(data[col_idx])) :
+            sum_col = add_equations(sum_col, data[row_idx][col_idx])
+    return sum_col
+
+def sum_diagonal_1 (data) :
+    sum_diag = add_equations(data[0][0], data[1][1])
+    for idx in range(2, len(data)) : 
+        sum_diag = add_equations(sum_diag, data[idx][idx])
+    return sum_diag
+
+def sum_diagonal_2 (data) :
+    sum_diag = add_equations(data[0][len(data)-1], data[1][len(data)-2])
+    for idx in range(2, len(data)) : 
+        sum_diag = add_equations(sum_diag, data[idx][len(data)-idx-1])
+    return sum_diag
+
+def check_magic_square(matrice) :
+    sum_data = row_sum(matrice, 0)
+
+    for row in range(len(matrice)) :
+        if row_sum(matrice, row) != sum_data : 
+            return "Sum of RoW is not equal to the Magic Sum."
+        if col_sum(matrice, row) != sum_data : 
+            return "Sum of CoL is not equal to the Magic Sum." 
+
+    if sum_diagonal_1(matrice) != sum_data :
+        return "Sum of Diagonal #1 is not equal to the Magic Sum."
+    if sum_diagonal_2(matrice) != sum_data :
+        return "Sum of Diagonal #2 is not equal to the Magic Sum." 
+
+    return "The given sequence forms a magic square."
+
+
+if __name__ == "__main__" :
+    matrices = []
+    with open("magic_square.txt", "r") as fobj:
+        matrice = []
+        for line in fobj.readlines():
+            line = line.strip()
+
+            if line == "":
+                matrices.append(matrice)
+                print(check_magic_square(matrice), "\n--x--x--x--x--\n")
+                matrice = []
+                continue
+            
+            print(line)
+            line = line.split()
+
+            row = []
+            for equation in line:
+                if equation != "":
+                    if re.match(r"^\(",equation) != None:
+                        row.append(parse_bracket_type_expr(equation))
+                    else:
+                        row.append(parse_algebric_type_expr(equation))
+            matrice.append(row)
+        matrices.append(matrice)
+        print(check_magic_square(matrice), "\n--x--x--x--x--\n")

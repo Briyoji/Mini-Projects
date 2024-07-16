@@ -1,0 +1,103 @@
+{
+    "semester-1" : [
+        {
+        "course_code" : "FM101",
+        "course_name" : "Computational Thinking",
+        "credits" : 3,
+        "grade" : "A" 
+        },
+
+        {
+        "course_code" : "FM102",
+        "course_name" : "Coding Cafe",
+        "credits" : 1,
+        "grade" : "A" 
+        },
+
+        {
+        "course_code" : "FM103",
+        "course_name" : "Engineering Math in Action",
+        "credits" : 3,
+        "grade" : "A-" 
+        },
+
+        {
+        "course_code" : "FM104",
+        "course_name" : "Engines of Life",
+        "credits" : 2,
+        "grade" : "B" 
+        },
+
+        {
+        "course_code" : "FM105",
+        "course_name" : "The Art of Thinking, Reasoning and Communication",
+        "credits" : 3,
+        "grade" : "B+" 
+        },
+
+        {
+        "course_code" : "IL101",
+        "course_name" : "ILGC -1",
+        "credits" : 4,
+        "grade" : "A" 
+        }
+    ],
+
+    "semester-2" : [
+        {
+        "course_code" : "FM124",
+        "course_name" : "Fundamentals of Microeconomics",
+        "credits" : 3,
+        "grade" : "B" 
+        },
+
+        {
+        "course_code" : "FM131",
+        "course_name" : "Programming and Data Structures",
+        "credits" : 3,
+        "grade" : "A-" 
+        },
+
+        {
+        "course_code" : "FM132",
+        "course_name" : "Foundations of Physical World",
+        "credits" : 3,
+        "grade" : "C" 
+        },
+
+        {
+        "course_code" : "FM133",
+        "course_name" : "Mathematics of Uncertainity",
+        "credits" : 3,
+        "grade" : "B+" 
+        },
+
+        {
+        "course_code" : "FM134",
+        "course_name" : "Nature's Machines",
+        "credits" : 2,
+        "grade" : "B" 
+        },
+
+        {
+        "course_code" : "FM135",
+        "course_name" : "Reimagining Technology and Society",
+        "credits" : 2,
+        "grade" : "B+" 
+        },
+
+        {
+        "course_code" : "HS1002",
+        "course_name" : "Communication Lab - 1",
+        "credits" : 1,
+        "grade" : "B+" 
+        },
+        
+        {
+        "course_code" : "IL122",
+        "course_name" : "ILGC -2",
+        "credits" : 2,
+        "grade" : "B+" 
+        }
+    ]
+}
